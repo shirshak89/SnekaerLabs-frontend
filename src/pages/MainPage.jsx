@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Navigate, Link } from "react-router-dom";
 import { consoleLog, loginUser, testAPICall } from "../features/user/userSlice";
 
 const MainPage = () => {
@@ -7,14 +8,14 @@ const MainPage = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(testAPICall());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(testAPICall());
+  // }, []);
 
   return (
     <React.Fragment>
       <div>MainPage</div>
-      <button onClick={() => dispatch(consoleLog())}>Click Me</button>
+      <Link to="/login">Login</Link>
     </React.Fragment>
   );
 };
