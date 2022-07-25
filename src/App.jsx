@@ -28,7 +28,7 @@ function App() {
         />
         <Route path="*" element={<Error />} />
       </Routes>
-      <ToastContainer position="top-center" />
+      <ToastContainer autoClose={5000} position="top-center" />
     </BrowserRouter>
   );
 }

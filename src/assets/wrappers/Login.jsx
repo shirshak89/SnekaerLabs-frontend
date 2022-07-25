@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   label {
     display: block;
     font-size: var(--font-xsmall);
+    text-transform: capitalize;
   }
 
   .form-content {
@@ -42,7 +43,11 @@ const Wrapper = styled.div`
 
       h2 {
         margin-bottom: var(--margin-1);
-        font-weight: 500;
+        font-weight: 600;
+        color: transparent;
+        -webkit-text-stroke: 1.3px var(--font-color);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
       }
 
       .btn-submit {
@@ -55,6 +60,27 @@ const Wrapper = styled.div`
         text-align: center;
         font-size: var(--font-xsmall);
         color: var(--font-color-light);
+      }
+
+      .link-btn {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        font-weight: 500;
+        text-decoration: underline;
+      }
+
+      .link-btn:hover {
+        color: var(--primary-color);
+      }
+
+      .forgot-remember {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      [type="checkbox"] {
+        vertical-align: text-top;
       }
     }
 
@@ -72,6 +98,22 @@ const Wrapper = styled.div`
       object-fit: cover;
       width: 100%;
       height: 100%;
+    }
+  }
+
+  @media (max-width: 740px) {
+    flex-direction: column;
+    height: auto;
+
+    .brand-content {
+      width: 100%;
+      order: 1;
+      height: 250px;
+    }
+
+    .form-content {
+      width: 100%;
+      order: 2;
     }
   }
 `;

@@ -26,7 +26,11 @@
 
   --background-color: #e6e5dc;
   --font-color: #252b00;
+  --primary-color: #ba5c3c;
+  --secondary-color: rgba(143, 153, 43, 0.8);
+
   --font-color-light: rgba(37, 43, 0, 0.95);
+  font-weight: 500;
 
   /* Border Radius */
   --border-1: 0.25em;
@@ -43,6 +47,13 @@
   --font-medium: 20px;
   --font-large: 32px;
   --font-xlarge: 48px;
+
+  /* Toast */
+  --toastify-font-family: Inter;
+}
+
+.Toastify__toast {
+  text-transform: capitalize;
 }
 
 h1,
@@ -64,7 +75,7 @@ h6 {
 }
 
 .btn {
-  background-color: rgba(143, 153, 43, 0.8);
+  background-color: var(--secondary-color);
   border: 0;
   border-radius: var(--border-1);
   display: inline-block;
@@ -72,6 +83,7 @@ h6 {
   font-family: inherit;
   text-transform: uppercase;
   padding: 0.85em 2em;
+  font-weight: 500;
 }
 
 .btn:hover {

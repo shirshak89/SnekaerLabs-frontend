@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import FormRow from "../components/FormRow";
 import Wrapper from "../assets/wrappers/Login";
 import { useDispatch } from "react-redux";
-import { loginUser } from "../features/user/userSlice";
+import { loginUser, registerUser } from "../features/user/userSlice";
 
 const initialState = {
   name: "",
@@ -25,11 +25,25 @@ const Login = () => {
     setValues({ ...values, [name]: value });
   };
 
+  const clearForm = () => {
+    setValues({ name: "", email: "", password: "", isMember: true });
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
-    const { email, password } = values;
+    const { email, password, name } = values;
 
-    return dispatch(loginUser({ email, password }));
+    if (!values.isMember) {
+      clearForm();
+      return dispatch(registerUser({ email, password, name }));
+    }
+
+    dispatch(loginUser({ email, password }));
+    clearForm();
+  };
+
+  const toggleClick = () => {
+    setValues({ ...values, isMember: !values.isMember });
   };
 
   return (
@@ -43,7 +57,17 @@ const Login = () => {
 
         <div className="login-form">
           <form onSubmit={onSubmit}>
-            <h2>Log In</h2>
+            <h2>{values.isMember ? "Log In" : "Sign Up"}</h2>
+
+            {!values.isMember && (
+              <FormRow
+                type="text"
+                name="name"
+                value={values.name}
+                placeholder="Enter your name"
+                handleChange={handleChange}
+              />
+            )}
             <FormRow
               type="email"
               name="email"
@@ -58,17 +82,33 @@ const Login = () => {
               placeholder="****************"
               handleChange={handleChange}
             />
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <label>
-                <input name="rememberme" value="remember" type="checkbox" />
-                Remember me
-              </label>
-              <span>Forgot Password?</span>
-            </div>
+
+            {values.isMember && (
+              <div className="forgot-remember">
+                <label>
+                  <input name="rememberme" value="remember" type="checkbox" />{" "}
+                  Remember Me
+                </label>
+                <span>Forgot Password?</span>
+              </div>
+            )}
+
             <button type="submit" className="btn btn-submit">
-              Sign In
+              {!values.isMember ? "Sign Up" : "Sign In"}
             </button>
-            <p>{`Don't have an account? Sign Up`}</p>
+
+            <p>
+              {!values.isMember
+                ? "Already a member? "
+                : "Don't have an account? "}
+              <button
+                type="button"
+                className="link-btn"
+                onClick={() => toggleClick()}
+              >
+                {!values.isMember ? "Sign In " : "Sign Up "}
+              </button>
+            </p>
           </form>
         </div>
 
