@@ -1,3 +1,10 @@
+@import url("https://rsms.me/inter/inter.css");
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: "Inter var", sans-serif;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -18,11 +25,55 @@
   -webkit-text-size-adjust: 100%;
 
   --background-color: #e6e5dc;
+  --font-color: #252b00;
+  --font-color-light: rgba(37, 43, 0, 0.95);
+
+  /* Border Radius */
+  --border-1: 0.25em;
+
+  /* Margin */
+  --margin-1: 0.5em;
+  --margin-2: 0.75em;
+  --margin-3: 1em;
+
+  /* Font-Size */
+  --font-xsmall: 12px;
+  --font-small: 14px;
+  --font-regular: 16px;
+  --font-medium: 20px;
+  --font-large: 32px;
+  --font-xlarge: 48px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  margin: 0;
 }
 
 .form-input {
   border: 0;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 0.25em;
-  padding: 1em;
+  border-radius: var(--border-1);
+  padding: 0.85em 1em;
+  font-family: inherit;
+}
+
+.btn {
+  background-color: rgba(143, 153, 43, 0.8);
+  border: 0;
+  border-radius: var(--border-1);
+  display: inline-block;
+  color: var(--font-color);
+  font-family: inherit;
+  text-transform: uppercase;
+  padding: 0.85em 2em;
+}
+
+.btn:hover {
+  cursor: pointer;
 }
