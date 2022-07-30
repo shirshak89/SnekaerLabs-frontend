@@ -12,7 +12,7 @@
 }
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -24,7 +24,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --background-color: #e6e5dc;
+  --background-color: #f5f5f5;
   --font-color: #252b00;
   --primary-color: #ba5c3c;
   --secondary-color: rgba(143, 153, 43, 0.8);
@@ -62,7 +62,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 400;
+  font-weight: 500;
   margin: 0;
 }
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Logo from "../assets/SneakerLabs.svg";
 import ShoeImage from "../assets/SideImage.jpg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import FormRow from "../components/FormRow";
 import Wrapper from "../assets/wrappers/Login";
 import { useDispatch } from "react-redux";
