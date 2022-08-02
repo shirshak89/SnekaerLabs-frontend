@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  background-color: var(--background-color);
   display: flex;
   height: 100vh;
   overflow: auto;
@@ -9,7 +8,11 @@ const Wrapper = styled.div`
   label {
     display: block;
     font-size: var(--font-xsmall);
+  }
+
+  .form-label {
     text-transform: capitalize;
+    letter-spacing: 0.3px;
   }
 
   .form-content {
@@ -38,15 +41,14 @@ const Wrapper = styled.div`
         width: 320px;
         max-width: 400px;
         font-size: var(--font-small);
-        color: var(--font-color-light);
       }
 
       h2 {
         margin-bottom: var(--margin-1);
-        font-weight: 600;
+        font-weight: 700;
         color: transparent;
-        -webkit-text-stroke: 1.3px var(--font-color);
-        letter-spacing: 0.2em;
+        -webkit-text-stroke: 1.6px var(--font-color);
+        letter-spacing: 0.1em;
         text-transform: uppercase;
       }
 
@@ -59,14 +61,12 @@ const Wrapper = styled.div`
       p {
         text-align: center;
         font-size: var(--font-xsmall);
-        color: var(--font-color-light);
       }
 
       .link-btn {
         border: none;
         background: transparent;
         cursor: pointer;
-        font-weight: 500;
         text-decoration: underline;
       }
 

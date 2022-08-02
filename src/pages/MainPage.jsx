@@ -1,18 +1,13 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Navigate, Link } from "react-router-dom";
-import { consoleLog, loginUser } from "../features/user/userSlice";
+import React from "react";
+import { Link } from "react-router-dom";
+import Wrapper from "../assets/wrappers/MainPage";
 
 const MainPage = () => {
-  const { user, isLoading } = useSelector((store) => store.user);
-
-  const dispatch = useDispatch();
-
   return (
-    <React.Fragment>
-      <div>MainPage</div>
+    <Wrapper>
+      <p>MainPage</p>
       <Link to="/login">Login</Link>
-    </React.Fragment>
+    </Wrapper>
   );
 };
 

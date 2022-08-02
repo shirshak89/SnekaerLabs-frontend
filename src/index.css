@@ -1,4 +1,5 @@
 @import url("https://rsms.me/inter/inter.css");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
 @supports (font-variation-settings: normal) {
   html {
     font-family: "Inter var", sans-serif;
@@ -15,8 +16,9 @@
   font-family: Inter, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
+  color: #000000;
   font-weight: 400;
-  color: #252b00;
+  background-color: #f5f5f5;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,13 +26,11 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --background-color: #f5f5f5;
   --font-color: #252b00;
+  --color-black: #000000;
+  --color-white: #ffffff;
   --primary-color: #ba5c3c;
   --secondary-color: rgba(143, 153, 43, 0.8);
-
-  --font-color-light: rgba(37, 43, 0, 0.95);
-  font-weight: 500;
 
   /* Border Radius */
   --border-1: 0.25em;
@@ -52,6 +52,26 @@
   --toastify-font-family: Inter;
 }
 
+/* Scroll Bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .Toastify__toast {
   text-transform: capitalize;
 }
@@ -67,19 +87,18 @@ h6 {
 }
 
 .form-input {
-  border: 0;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgb(182, 178, 178);
   border-radius: var(--border-1);
   padding: 0.85em 1em;
   font-family: inherit;
 }
 
 .btn {
-  background-color: var(--secondary-color);
+  background-color: black;
   border: 0;
   border-radius: var(--border-1);
   display: inline-block;
-  color: var(--font-color);
+  color: white;
   font-family: inherit;
   text-transform: uppercase;
   padding: 0.85em 2em;
@@ -88,4 +107,26 @@ h6 {
 
 .btn:hover {
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+a:visited {
+  color: var(--color-black);
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+/* Image */
+
+img {
+  display: block;
 }
