@@ -56,6 +56,12 @@ const Wrapper = styled.div`
         min-width: 320px;
         font-size: var(--font-xsmall);
         margin: var(--margin-2) 0;
+        background-color: black;
+        border: 0;
+        border-radius: var(--border-1);
+        color: white;
+        text-transform: uppercase;
+        padding: 0.85em 2em;
       }
 
       p {

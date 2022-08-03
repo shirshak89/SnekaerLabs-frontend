@@ -63,6 +63,7 @@ const Wrapper = styled.nav`
   @media (max-width: 950px) {
     .primary-nav {
       position: fixed;
+      z-index: 999;
       inset: 0 0 0 50%;
       padding: 6em 2em;
       background: rgba(255, 255, 255, 0.2);
@@ -101,6 +102,7 @@ const Wrapper = styled.nav`
       display: block;
       position: relative;
       font-size: 1.275em;
+      z-index: 9999;
     }
   }
 `;

@@ -32,6 +32,18 @@ export const registerUser = createAsyncThunk(
   }
 );
 
+export const logoutUser = createAsyncThunk(
+  "user/logoutUser",
+  async (user, thunkAPI) => {
+    try {
+      const resp = await customFetch.get("/api/v1/auth/logout");
+      return resp.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.msg);
+    }
+  }
+);
+
 const userSlice = createSlice({
   name: "user",
   initialState,
@@ -64,6 +76,19 @@ const userSlice = createSlice({
       toast.success("User Registered");
     },
     [registerUser.rejected]: (state, { payload }) => {
+      state.isLoading = false;
+      toast.error(payload);
+    },
+    [logoutUser.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [logoutUser.fulfilled]: (state) => {
+      state.isLoading = false;
+      state.user = null;
+      localStorage.removeItem("user");
+      toast.success("Logged Out");
+    },
+    [logoutUser.rejected]: (state, { payload }) => {
       state.isLoading = false;
       toast.error(payload);
     },

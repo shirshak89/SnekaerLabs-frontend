@@ -5,10 +5,17 @@ import Logo from "../assets/SneakerLabs.png";
 import { BiUser, BiSearch, BiHeart, BiCart } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
+import { FiLogOut } from "react-icons/fi";
 import NavigationLink from "../components/NavigationLink";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../features/user/userSlice";
 
 const Navigation = () => {
+  const { user } = useSelector((store) => store.user);
+
   const [showNav, setShowNav] = useState(false);
+
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -26,9 +33,15 @@ const Navigation = () => {
           </ul>
         </div>
         <div className="secondary-nav">
-          <Link to="/login">
-            <BiUser />
-          </Link>
+          {!user ? (
+            <Link to="/login">
+              <BiUser />
+            </Link>
+          ) : (
+            <a>
+              <FiLogOut onClick={() => dispatch(logoutUser())} />
+            </a>
+          )}
           <Link to="/login">
             <BiSearch />
           </Link>
