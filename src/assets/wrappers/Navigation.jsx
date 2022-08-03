@@ -45,6 +45,54 @@ const Wrapper = styled.nav`
       margin: 0 0.2em;
     }
   }
+
+  .close-btn,
+  .hamburger {
+    display: none;
+  }
+
+  @media (max-width: 950px) {
+    .primary-nav {
+      position: fixed;
+      inset: 0 0 0 50%;
+      padding: 6em 2em;
+      background: rgba(0, 0, 0, 0.25);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5.1px);
+      -webkit-backdrop-filter: blur(5.1px);
+
+      ul {
+        flex-direction: column;
+        gap: 1em;
+      }
+    }
+
+    .hide {
+      transform: translateX(100%);
+      transition: transform 350ms ease-out;
+    }
+
+    .show {
+      transform: translateX(0);
+      transition: transform 350ms ease-out;
+    }
+
+    .secondary-nav {
+      display: none;
+    }
+
+    .hamburger {
+      display: block;
+      position: relative;
+      font-size: 1.275em;
+    }
+
+    .close-btn {
+      display: block;
+      position: relative;
+      font-size: 1.275em;
+    }
+  }
 `;
 
 export default Wrapper;
