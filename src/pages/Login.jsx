@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "../assets/SneakerLabs.svg";
 import ShoeImage from "../assets/SideImage.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FormRow from "../components/FormRow";
 import Wrapper from "../assets/wrappers/Login";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginUser, registerUser } from "../features/user/userSlice";
 
 const initialState = {
@@ -16,8 +16,10 @@ const initialState = {
 
 const Login = () => {
   const [values, setValues] = useState(initialState);
+  const { isLoading, user } = useSelector((store) => store.user);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const name = e.target.name;

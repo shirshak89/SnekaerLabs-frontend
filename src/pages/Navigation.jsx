@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import Wrapper from "../assets/wrappers/Navigation";
-import Logo from "../assets/SneakerLabs.svg";
+import Logo from "../assets/SneakerLabs.png";
 import { BiUser, BiSearch, BiHeart, BiCart } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
