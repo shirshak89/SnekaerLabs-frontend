@@ -19,7 +19,6 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 auto;
 
     h2,
     h3 {
@@ -67,6 +66,51 @@ const Wrapper = styled.div`
     height: 100%;
     object-fit: contain;
     transform: rotateZ(-15deg);
+  }
+
+  @media (max-width: 1310px) {
+    .hero {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5em 0;
+    }
+
+    .hero-intro {
+      width: 100%;
+      align-items: center;
+
+      h2 {
+        font-size: var(--font-xlarge);
+      }
+
+      h3 {
+        font-size: var(--font-large);
+      }
+
+      p {
+        text-align: center;
+      }
+    }
+  }
+
+  @media (max-width: 700px) {
+    .hero {
+      width: 100%;
+    }
+
+    .hero-intro {
+      width: 100%;
+      align-items: center;
+
+      h2 {
+        font-size: var(--font-large);
+      }
+
+      h3 {
+        font-size: var(--font-regular);
+      }
+    }
   }
 `;
 

@@ -9,10 +9,6 @@ const Wrapper = styled.nav`
   justify-content: space-between;
   align-items: center;
 
-  .active {
-    color: var(--primary-color);
-  }
-
   .logo {
     width: 20%;
 
@@ -37,9 +33,14 @@ const Wrapper = styled.nav`
         margin: 0 0.2em;
 
         a {
+          color: black;
           padding: 0.2em 1em;
         }
       }
+    }
+
+    .active {
+      color: var(--primary-color);
     }
   }
 

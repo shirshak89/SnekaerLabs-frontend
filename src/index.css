@@ -101,7 +101,8 @@ h6 {
   font-weight: 500;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus {
   cursor: pointer;
 }
 
@@ -113,11 +114,13 @@ li {
   list-style-type: none;
 }
 
-a:visited {
+a:visited,
+a:focus {
   color: var(--color-black);
 }
 
-a:hover {
+a:hover,
+a:focus {
   color: var(--primary-color);
 }
 
