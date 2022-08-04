@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.nav`
   border-bottom: 1px solid #dee0ea;
-  padding: 2em 3em;
+  padding: 2em 4em;
   font-family: "Nunito Sans";
 
   display: flex;
@@ -33,15 +33,20 @@ const Wrapper = styled.nav`
         margin: 0 0.2em;
 
         a {
-          color: black;
+          color: var(--color-black);
           padding: 0.2em 1em;
+          transition: color 250ms linear;
+        }
+
+        a:hover,
+        a:focus {
+          color: var(--primary-color);
         }
       }
     }
-
-    .active {
+    /* .active {
       color: var(--primary-color);
-    }
+    } */
   }
 
   .secondary-nav {
@@ -51,8 +56,15 @@ const Wrapper = styled.nav`
     font-size: var(--font-medium);
 
     a {
+      color: var(--color-black);
       padding: 0em 0.2em;
       margin: 0 0.2em;
+      transition: color 250ms linear;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--primary-color);
     }
   }
 
@@ -67,11 +79,10 @@ const Wrapper = styled.nav`
       z-index: 999;
       inset: 0 0 0 50%;
       padding: 6em 2em;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.27);
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(15.1px);
+      -webkit-backdrop-filter: blur(15.1px);
 
       ul {
         flex-direction: column;

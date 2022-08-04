@@ -6,7 +6,7 @@ const NavigationLink = ({ path, text }) => {
     <li>
       <NavLink
         className={({ isActive }) => {
-          return isActive && " active";
+          return isActive ? "active" : undefined;
         }}
         to={path}
       >

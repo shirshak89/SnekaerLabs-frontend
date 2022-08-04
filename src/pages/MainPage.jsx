@@ -2,6 +2,7 @@ import React from "react";
 import Wrapper from "../assets/wrappers/MainPage";
 import HeroImage from "../assets/images/hero-image/heroImage.png";
 import { Link } from "react-router-dom";
+import Product from "../components/Product";
 
 const MainPage = () => {
   return (
@@ -24,6 +25,14 @@ const MainPage = () => {
         </div>
         <div className="hero-image">
           <img src={HeroImage} alt="hero image" />
+        </div>
+      </div>
+      <div className="featured">
+        <h2>
+          <span className="accent-color">Featured</span> Products
+        </h2>
+        <div className="carousel">
+          <Product />
         </div>
       </div>
     </Wrapper>

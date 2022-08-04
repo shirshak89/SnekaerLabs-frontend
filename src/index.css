@@ -6,7 +6,9 @@
   }
 }
 
-* {
+*,
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -29,6 +31,7 @@
   --font-color: #252b00;
   --color-black: #000000;
   --color-white: #ffffff;
+  --color-gray: #868686;
   /* --primary-color: #ba5c3c; */
   --primary-color: #ff490f;
   --secondary-color: rgba(143, 153, 43, 0.8);
@@ -46,9 +49,10 @@
   --font-small: 14px;
   --font-regular: 16px;
   --font-medium: 20px;
+  --font-xmedium: 26px;
   --font-large: 32px;
   --font-xlarge: 48px;
-  --font-xxlarge: 62px;
+  --font-xxlarge: 58px;
 
   /* Toast */
   --toastify-font-family: Inter;
@@ -132,7 +136,8 @@ img {
 }
 
 .container {
-  width: 80%;
+  width: 90%;
+  background-color: transparent;
 }
 
 .accent-color {

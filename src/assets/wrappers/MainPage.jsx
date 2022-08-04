@@ -8,11 +8,18 @@ const Wrapper = styled.div`
     display: flex;
     margin: 0 auto;
     height: 100%;
+
+    img {
+      height: 100%;
+      object-fit: contain;
+      transform: rotateZ(-15deg);
+    }
   }
 
   .hero-intro,
   .hero-image {
     width: 50%;
+    overflow: hidden;
   }
 
   .hero-intro {
@@ -46,7 +53,7 @@ const Wrapper = styled.div`
     p {
       margin: 0.5em 0;
       width: 80%;
-      color: #868686;
+      color: var(--color-gray);
       font-size: var(--font-small);
     }
 
@@ -62,14 +69,36 @@ const Wrapper = styled.div`
     }
   }
 
-  img {
-    height: 100%;
-    object-fit: contain;
-    transform: rotateZ(-15deg);
+  .featured {
+    background-color: #f5f5f5;
+    padding: 2em 4em;
+
+    h2 {
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .carousel {
+      overflow-x: scroll;
+      display: flex;
+      scroll-snap-type: x mandatory;
+
+      .carousel-item {
+        margin-right: 5px;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+
+        img {
+          height: 500px;
+          object-fit: cover;
+        }
+      }
+    }
   }
 
   @media (max-width: 1310px) {
     .hero {
+      min-height: calc(60vh - 100px);
       flex-direction: column;
       justify-content: center;
       align-items: center;

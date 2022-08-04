@@ -9,6 +9,7 @@ import { FiLogOut } from "react-icons/fi";
 import NavigationLink from "../components/NavigationLink";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../features/user/userSlice";
+import Footer from "../components/Footer";
 
 const Navigation = () => {
   const { user } = useSelector((store) => store.user);
@@ -66,6 +67,7 @@ const Navigation = () => {
         )}
       </Wrapper>
       <Outlet />
+      <Footer />
     </>
   );
 };
