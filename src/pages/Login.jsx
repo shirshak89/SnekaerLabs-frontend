@@ -48,6 +48,12 @@ const Login = () => {
     setValues({ ...values, isMember: !values.isMember });
   };
 
+  if (user) {
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
+  }
+
   return (
     <Wrapper>
       <div className="form-content">

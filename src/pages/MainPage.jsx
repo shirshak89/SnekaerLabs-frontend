@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Wrapper from "../assets/wrappers/MainPage";
 import HeroImage from "../assets/images/hero-image/heroImage.png";
 import { Link } from "react-router-dom";
 import Product from "../components/Product";
+import { getFeaturedProducts } from "../features/product/productSlice";
+import { useDispatch, useSelector } from "react-redux";
+import Carousel from "react-elastic-carousel";
 
 const MainPage = () => {
+  const { products, isLoading } = useSelector((store) => store.product);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getFeaturedProducts());
+  }, []);
+
+  const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 580, itemsToShow: 2, itemsToScroll: 2 },
+    { width: 800, itemsToShow: 3 },
+    { width: 1200, itemsToShow: 4 },
+  ];
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <Wrapper>
       <div className="container hero">
@@ -31,9 +53,20 @@ const MainPage = () => {
         <h2>
           <span className="accent-color">Featured</span> Products
         </h2>
-        <div className="carousel">
-          <Product />
-        </div>
+        <Carousel breakPoints={breakPoints}>
+          {products.map((data) => {
+            return (
+              <Product
+                key={data._id}
+                image={data.image}
+                name={data.name}
+                company={data.company}
+                price={data.price}
+                averageRating={data.averageRating}
+              />
+            );
+          })}
+        </Carousel>
       </div>
     </Wrapper>
   );

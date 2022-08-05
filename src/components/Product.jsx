@@ -1,27 +1,38 @@
-import React, { useEffect } from "react";
-import { getFeaturedProducts } from "../features/product/productSlice";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import Wrapper from "../assets/wrappers/Product";
+import {
+  AiOutlineHeart,
+  AiFillHeart,
+  AiFillStar,
+  AiOutlineStar,
+} from "react-icons/ai";
 
-const Product = () => {
-  const { products, isLoading } = useSelector((store) => store.product);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getFeaturedProducts());
-  }, []);
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
-  return products?.map((data) => {
-    return (
-      <div className="carousel-item">
-        <img src={data.image} alt="shoe image" />
-      </div>
-    );
-  });
+const Product = ({ image, name, company, price, averageRating }) => {
+  return (
+    <>
+      <Wrapper>
+        <div className="product-image">
+          <img src={image} alt="shoe image" />
+        </div>
+        <div className="product-info">
+          <div className="product-name-row">
+            <p className="product-name">{name}</p>
+            <AiOutlineHeart />
+          </div>
+          <p className="product-brand">{company}</p>
+          <div className="product-price-row">
+            <p className="product-price">{price}</p>
+            <div className="stars">
+              <AiFillStar />
+              <AiFillStar />
+              <AiFillStar />
+              <AiFillStar />
+            </div>
+          </div>
+        </div>
+      </Wrapper>
+    </>
+  );
 };
 
 export default Product;
