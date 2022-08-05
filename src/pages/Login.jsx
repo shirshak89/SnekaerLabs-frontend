@@ -16,10 +16,18 @@ const initialState = {
 
 const Login = () => {
   const [values, setValues] = useState(initialState);
-  const { isLoading, user } = useSelector((store) => store.user);
+  const { user } = useSelector((store) => store.user);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
+    }
+  }, [user]);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -47,12 +55,6 @@ const Login = () => {
   const toggleClick = () => {
     setValues({ ...values, isMember: !values.isMember });
   };
-
-  if (user) {
-    setTimeout(() => {
-      navigate("/");
-    }, 1000);
-  }
 
   return (
     <Wrapper>
