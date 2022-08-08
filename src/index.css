@@ -136,8 +136,12 @@ img {
 }
 
 .container {
-  width: 90%;
+  max-width: 1400px;
   background-color: transparent;
+}
+
+label {
+  display: block;
 }
 
 .accent-color {
