@@ -1,6 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux/es/exports";
 import Wrapper from "../assets/wrappers/FilterSidebar";
 import FormRow from "../components/FormRow";
+import {
+  getAllProducts,
+  handleFilters,
+  clearFilters,
+} from "../features/product/productSlice";
 import FormRowSelect from "./FormRowSelect";
 
 const initialFilterState = {
@@ -10,18 +17,28 @@ const initialFilterState = {
 };
 
 const FilterSidebar = () => {
+  const categories = ["all", "outdoor", "lifestyle", "sports", "casual"];
+
   const [filters, setFilters] = useState(initialFilterState);
+  const { isLoading, search, category, company } = useSelector(
+    (store) => store.product
+  );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllProducts());
+  }, [search, category, company]);
 
   const handleChange = (e) => {
+    if (isLoading) return;
+
     const name = e.target.name;
     const value = e.target.value;
 
+    dispatch(handleFilters({ name, value }));
     setFilters({ ...filters, [name]: value });
   };
-
-  const category = ["all", "outdoor", "lifestyle", "sports", "casual"];
-
-  console.log(filters);
 
   return (
     <Wrapper>
@@ -36,14 +53,14 @@ const FilterSidebar = () => {
       <div className="filter-category">
         <label>Category</label>
         <div className="category-btn">
-          {category.map((cat) => {
+          {categories.map((cat) => {
             return (
               <button
                 key={cat}
                 name="category"
                 value={cat === "all" ? "" : cat}
                 onClick={handleChange}
-                className={filters.category === cat ? "active" : null}
+                className={category === cat ? "active" : null}
               >
                 {cat}
               </button>
@@ -58,7 +75,9 @@ const FilterSidebar = () => {
         handleChange={handleChange}
         list={["all", "adidas", "nike", "vans"]}
       />
-      <button className="btn">Clear Filters</button>
+      <button onClick={() => dispatch(clearFilters())} className="btn">
+        Clear Filters
+      </button>
     </Wrapper>
   );
 };

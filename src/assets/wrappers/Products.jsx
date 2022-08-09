@@ -6,8 +6,6 @@ const Wrapper = styled.div`
     grid-template-columns: auto 1fr auto;
     align-items: center;
     column-gap: 1.5em;
-    position: sticky;
-    top: 1em;
   }
 
   label {
@@ -24,6 +22,17 @@ const Wrapper = styled.div`
     border: 1px solid black;
     border-radius: 2px;
     padding: 0.1em;
+  }
+
+  .products-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 2em;
+    justify-items: center;
+
+    svg {
+      border: none;
+    }
   }
 `;
 
