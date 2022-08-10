@@ -42,42 +42,47 @@ const FilterSidebar = () => {
 
   return (
     <Wrapper>
-      <h2>Filter Products</h2>
-      <FormRow
-        placeholder="Search..."
-        name="search"
-        type="text"
-        value={filters.search}
-        handleChange={handleChange}
-      />
-      <div className="filter-category">
-        <label>Category</label>
-        <div className="category-btn">
-          {categories.map((cat) => {
-            return (
-              <button
-                key={cat}
-                name="category"
-                value={cat === "all" ? "" : cat}
-                onClick={handleChange}
-                className={category === cat ? "active" : null}
-              >
-                {cat}
-              </button>
-            );
-          })}
+      {/* <h2>Filter Products</h2> */}
+      <div className="filter-container">
+        <FormRow
+          placeholder="Search"
+          name="search"
+          type="text"
+          value={filters.search}
+          handleChange={handleChange}
+        />
+        <div className="filter-category">
+          <label>Category</label>
+          <div className="category-btn">
+            {categories.map((cat) => {
+              return (
+                <button
+                  key={cat}
+                  name="category"
+                  value={cat === "all" ? "" : cat}
+                  onClick={handleChange}
+                  className={category === cat ? "active" : null}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
         </div>
+        <FormRowSelect
+          labelText="Company"
+          name="company"
+          value={filters.company}
+          handleChange={handleChange}
+          list={["all", "adidas", "nike", "vans"]}
+        />
+        <button
+          onClick={() => dispatch(clearFilters())}
+          className="btn clear-filter"
+        >
+          Clear Filters
+        </button>
       </div>
-      <FormRowSelect
-        labelText="Company"
-        name="company"
-        value={filters.company}
-        handleChange={handleChange}
-        list={["all", "adidas", "nike", "vans"]}
-      />
-      <button onClick={() => dispatch(clearFilters())} className="btn">
-        Clear Filters
-      </button>
     </Wrapper>
   );
 };
