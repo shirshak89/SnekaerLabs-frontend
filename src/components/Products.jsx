@@ -16,11 +16,11 @@ const Products = () => {
         <hr />
         <FormRowSelect labelText="Sort By" />
       </div>
-      <div className="products-showcase">
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : (
-          products.map((data) => {
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <div className="products-showcase">
+          {products.map((data) => {
             return (
               <Product
                 key={data._id}
@@ -31,9 +31,9 @@ const Products = () => {
                 averageRating={data.averageRating}
               />
             );
-          })
-        )}
-      </div>
+          })}
+        </div>
+      )}
     </Wrapper>
   );
 };

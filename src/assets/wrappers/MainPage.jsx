@@ -73,6 +73,10 @@ const Wrapper = styled.div`
     background-color: #f5f5f5;
     padding: 2em 4em;
 
+    .container {
+      margin: 0 auto;
+    }
+
     h2 {
       text-transform: uppercase;
       font-weight: 700;

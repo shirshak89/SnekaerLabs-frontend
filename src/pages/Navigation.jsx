@@ -22,50 +22,52 @@ const Navigation = () => {
 
   return (
     <>
-      <Wrapper>
-        <Link className="logo" to="/">
-          <img src={Logo} />
-        </Link>
-        <div className={showNav ? "primary-nav show" : "primary-nav hide"}>
-          <ul>
-            <NavigationLink path="/" text="Home" />
-            <NavigationLink path="/shop" text="Shop" />
-            <NavigationLink path="/contact" text="Contact" />
-          </ul>
-        </div>
-        <div className="secondary-nav">
-          {!user ? (
+      <div style={{ borderBottom: "1px solid #dee0ea" }}>
+        <Wrapper>
+          <Link className="logo" to="/">
+            <img src={Logo} />
+          </Link>
+          <div className={showNav ? "primary-nav show" : "primary-nav hide"}>
+            <ul>
+              <NavigationLink path="/" text="Home" />
+              <NavigationLink path="/shop" text="Shop" />
+              <NavigationLink path="/contact" text="Contact" />
+            </ul>
+          </div>
+          <div className="secondary-nav">
+            {!user ? (
+              <Link to="/login">
+                <BiUser />
+              </Link>
+            ) : (
+              <a>
+                <FiLogOut onClick={() => dispatch(logoutUser())} />
+              </a>
+            )}
             <Link to="/login">
-              <BiUser />
+              <BiSearch />
             </Link>
-          ) : (
-            <a>
-              <FiLogOut onClick={() => dispatch(logoutUser())} />
-            </a>
+            <Link to="/login">
+              <BiHeart />
+            </Link>
+            <Link to="/cart">
+              <BiCart />
+            </Link>
+          </div>
+          {!showNav && (
+            <GiHamburgerMenu
+              className="hamburger"
+              onClick={() => setShowNav(true)}
+            />
           )}
-          <Link to="/login">
-            <BiSearch />
-          </Link>
-          <Link to="/login">
-            <BiHeart />
-          </Link>
-          <Link to="/cart">
-            <BiCart />
-          </Link>
-        </div>
-        {!showNav && (
-          <GiHamburgerMenu
-            className="hamburger"
-            onClick={() => setShowNav(true)}
-          />
-        )}
-        {showNav && (
-          <AiOutlineClose
-            onClick={() => setShowNav(false)}
-            className="close-btn"
-          />
-        )}
-      </Wrapper>
+          {showNav && (
+            <AiOutlineClose
+              onClick={() => setShowNav(false)}
+              className="close-btn"
+            />
+          )}
+        </Wrapper>
+      </div>
       <Outlet />
       <Footer />
     </>

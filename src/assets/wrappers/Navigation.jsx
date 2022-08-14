@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 const Wrapper = styled.nav`
-  border-bottom: 1px solid #dee0ea;
-  padding: 2em 4em;
+  padding: 2em 0em;
   font-family: "Nunito Sans";
+  max-width: 1300px;
+  margin: 0 auto;
 
   display: flex;
   justify-content: space-between;
@@ -50,9 +51,8 @@ const Wrapper = styled.nav`
   }
 
   .secondary-nav {
-    width: 20%;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     font-size: var(--font-medium);
 
     a {

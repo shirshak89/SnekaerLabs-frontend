@@ -50,23 +50,25 @@ const MainPage = () => {
         </div>
       </div>
       <div className="featured">
-        <h2>
-          <span className="accent-color">Featured</span> Products
-        </h2>
-        <Carousel breakPoints={breakPoints}>
-          {products.map((data) => {
-            return (
-              <Product
-                key={data._id}
-                image={data.image}
-                name={data.name}
-                company={data.company}
-                price={data.price}
-                averageRating={data.averageRating}
-              />
-            );
-          })}
-        </Carousel>
+        <div className="container">
+          <h2>
+            <span className="accent-color">Featured</span> Products
+          </h2>
+          <Carousel breakPoints={breakPoints}>
+            {products.map((data) => {
+              return (
+                <Product
+                  key={data._id}
+                  image={data.image}
+                  name={data.name}
+                  company={data.company}
+                  price={data.price}
+                  averageRating={data.averageRating}
+                />
+              );
+            })}
+          </Carousel>
+        </div>
       </div>
     </Wrapper>
   );
