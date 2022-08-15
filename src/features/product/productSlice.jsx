@@ -6,6 +6,7 @@ const initialFilterState = {
   search: "",
   company: "",
   category: "",
+  sort: "",
 };
 
 const initialState = {
@@ -29,10 +30,10 @@ export const getFeaturedProducts = createAsyncThunk(
 export const getAllProducts = createAsyncThunk(
   "product/getAllProducts",
   async (_, thunkAPI) => {
-    const { search, company, category } = thunkAPI.getState().product;
+    const { search, company, category, sort } = thunkAPI.getState().product;
     try {
       const resp = await customFetch.get(
-        `/api/v1/products?name=${search}&company=${company}&category=${category}`
+        `/api/v1/products?name=${search}&company=${company}&category=${category}&sort=${sort}`
       );
       return resp.data;
     } catch (error) {

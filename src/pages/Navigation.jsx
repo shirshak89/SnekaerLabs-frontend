@@ -45,9 +45,6 @@ const Navigation = () => {
               </a>
             )}
             <Link to="/login">
-              <BiSearch />
-            </Link>
-            <Link to="/login">
               <BiHeart />
             </Link>
             <Link to="/cart">

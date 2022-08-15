@@ -92,6 +92,10 @@ h6 {
   margin: 0;
 }
 
+p {
+  line-height: 1.5;
+}
+
 .form-input {
   border: 1px solid rgb(182, 178, 178);
   border-radius: var(--border-1);
