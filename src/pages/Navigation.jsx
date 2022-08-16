@@ -29,9 +29,13 @@ const Navigation = () => {
           </Link>
           <div className={showNav ? "primary-nav show" : "primary-nav hide"}>
             <ul>
-              <NavigationLink path="/" text="Home" />
-              <NavigationLink path="/shop" text="Shop" />
-              <NavigationLink path="/contact" text="Contact" />
+              <NavigationLink path="/" text="Home" hideNav={setShowNav} />
+              <NavigationLink path="/shop" text="Shop" hideNav={setShowNav} />
+              <NavigationLink
+                path="/contact"
+                text="Contact"
+                hideNav={setShowNav}
+              />
             </ul>
           </div>
           <div className="secondary-nav">
