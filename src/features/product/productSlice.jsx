@@ -7,11 +7,13 @@ const initialFilterState = {
   company: "",
   category: "",
   sort: "",
+  page: 1,
 };
 
 const initialState = {
   isLoading: false,
   products: [],
+  totalPages: 1,
   ...initialFilterState,
 };
 
@@ -30,10 +32,11 @@ export const getFeaturedProducts = createAsyncThunk(
 export const getAllProducts = createAsyncThunk(
   "product/getAllProducts",
   async (_, thunkAPI) => {
-    const { search, company, category, sort } = thunkAPI.getState().product;
+    const { search, company, category, sort, page } =
+      thunkAPI.getState().product;
     try {
       const resp = await customFetch.get(
-        `/api/v1/products?name=${search}&company=${company}&category=${category}&sort=${sort}`
+        `/api/v1/products?name=${search}&company=${company}&category=${category}&sort=${sort}&page=${page}`
       );
       return resp.data;
     } catch (error) {
@@ -47,10 +50,11 @@ const productSlice = createSlice({
   initialState,
   reducers: {
     handleFilters: (state, { payload: { name, value } }) => {
+      console.log(name, value);
       state[name] = value;
     },
     clearFilters: (state) => {
-      return { ...state, ...initialFilterState };
+      return { ...state, search: "", company: "", category: "" };
     },
   },
   extraReducers: {
@@ -70,7 +74,8 @@ const productSlice = createSlice({
       state.isLoading = true;
     },
     [getAllProducts.fulfilled]: (state, { payload }) => {
-      const { products } = payload;
+      const { products, totalPages } = payload;
+      state.totalPages = totalPages;
       state.products = products;
       state.isLoading = false;
     },

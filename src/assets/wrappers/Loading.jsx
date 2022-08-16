@@ -12,8 +12,8 @@ const Wrapper = styled.div`
 
   .bounce div {
     border-radius: 50%;
-    height: 15px;
-    width: 15px;
+    height: 12px;
+    width: 12px;
     background-color: #ff490f;
     animation: move 0.5s cubic-bezier(0.19, 0.57, 0.3, 0.98) infinite alternate;
   }
@@ -33,7 +33,7 @@ const Wrapper = styled.div`
   @keyframes move {
     from {
       transform: translateY(0);
-      opacity: 0.2;
+      opacity: 0.1;
     }
     to {
       transform: translateY(-100px);

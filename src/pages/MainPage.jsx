@@ -6,6 +6,7 @@ import Product from "../components/Product";
 import { getFeaturedProducts } from "../features/product/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Carousel from "react-elastic-carousel";
+import Loading from "../components/Loading";
 
 const MainPage = () => {
   const { products, isLoading } = useSelector((store) => store.product);
@@ -22,10 +23,6 @@ const MainPage = () => {
     { width: 800, itemsToShow: 3 },
     { width: 1200, itemsToShow: 4 },
   ];
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
 
   return (
     <Wrapper>
@@ -55,18 +52,22 @@ const MainPage = () => {
             <span className="accent-color">Featured</span> Products
           </h2>
           <Carousel breakPoints={breakPoints}>
-            {products.map((data) => {
-              return (
-                <Product
-                  key={data._id}
-                  image={data.image}
-                  name={data.name}
-                  company={data.company}
-                  price={data.price}
-                  averageRating={data.averageRating}
-                />
-              );
-            })}
+            {isLoading ? (
+              <Loading />
+            ) : (
+              products.map((data) => {
+                return (
+                  <Product
+                    key={data._id}
+                    image={data.image}
+                    name={data.name}
+                    company={data.company}
+                    price={data.price}
+                    averageRating={data.averageRating}
+                  />
+                );
+              })
+            )}
           </Carousel>
         </div>
       </div>

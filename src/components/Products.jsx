@@ -7,7 +7,10 @@ import { handleFilters } from "../features/product/productSlice";
 import Loading from "./Loading";
 
 const Products = () => {
-  const { isLoading, products } = useSelector((store) => store.product);
+  const { isLoading, products, page, totalPages } = useSelector(
+    (store) => store.product
+  );
+
   const [filter, setFilter] = useState({ sort: "" });
 
   const dispatch = useDispatch();
@@ -20,6 +23,23 @@ const Products = () => {
 
     dispatch(handleFilters({ name, value }));
     setFilter({ [name]: value });
+  };
+
+  const handlePageChange = (change) => {
+    const name = "page";
+
+    if (change === "-") {
+      if (page <= 1) {
+        const value = 1;
+        return dispatch(handleFilters({ name, value }));
+      }
+
+      const value = page - 1;
+      return dispatch(handleFilters({ name, value }));
+    }
+
+    const value = page + 1;
+    dispatch(handleFilters({ name, value }));
   };
 
   return (
@@ -44,10 +64,11 @@ const Products = () => {
             <option value="name">Name (A-Z)</option>
             <option value="-name">Name (Z-A)</option>
             <option value="-price">Price (H-L)</option>
-            <option value="price">Name (L-H)</option>
+            <option value="price">Price (L-H)</option>
           </select>
         </div>
       </div>
+
       {isLoading ? (
         <Loading />
       ) : (
@@ -66,6 +87,42 @@ const Products = () => {
           })}
         </div>
       )}
+
+      <div className="pagination">
+        {page > 1 ? (
+          <button onClick={() => handlePageChange("-")}>previous</button>
+        ) : (
+          <button disabled onClick={() => handlePageChange("-")}>
+            previous
+          </button>
+        )}
+
+        <div className="jump-page">
+          Page
+          <select
+            name="sort"
+            value={filter.sort}
+            id="sort"
+            onChange={handleChange}
+            className="form-select"
+          >
+            <option value="">1</option>
+            <option value="name">2</option>
+            <option value="-name">3</option>
+            <option value="-price">4</option>
+            <option value="price">4</option>
+          </select>
+          <p>/{totalPages}</p>
+        </div>
+
+        {page === totalPages ? (
+          <button disabled onClick={() => handlePageChange("+")}>
+            next
+          </button>
+        ) : (
+          <button onClick={() => handlePageChange("+")}>next</button>
+        )}
+      </div>
     </Wrapper>
   );
 };

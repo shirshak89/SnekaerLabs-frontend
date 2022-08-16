@@ -20,7 +20,7 @@ const FilterSidebar = () => {
   const categories = ["all", "outdoor", "lifestyle", "sports", "casual"];
 
   const [filters, setFilters] = useState(initialFilterState);
-  const { isLoading, search, category, company, sort } = useSelector(
+  const { isLoading, search, category, company, sort, page } = useSelector(
     (store) => store.product
   );
 
@@ -28,7 +28,7 @@ const FilterSidebar = () => {
 
   useEffect(() => {
     dispatch(getAllProducts());
-  }, [search, category, company, sort]);
+  }, [search, category, company, sort, page]);
 
   const handleChange = (e) => {
     if (isLoading) return;
@@ -36,6 +36,7 @@ const FilterSidebar = () => {
     const name = e.target.name;
     const value = e.target.value;
 
+    dispatch(handleFilters({ name: "page", value: 1 }));
     dispatch(handleFilters({ name, value }));
     setFilters({ ...filters, [name]: value });
   };

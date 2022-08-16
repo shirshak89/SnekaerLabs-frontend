@@ -8,7 +8,7 @@ const Wrapper = styled.aside`
     flex-direction: column;
     gap: 1em;
     background-color: #373737;
-    border-radius: 6px;
+    border-radius: 5px;
     color: #d3d3d3;
     padding: 1em;
     font-weight: 300;
@@ -16,7 +16,6 @@ const Wrapper = styled.aside`
   }
 
   button {
-    color: white;
     font-size: var(--font-small);
     text-transform: uppercase;
     color: #d3d3d3;

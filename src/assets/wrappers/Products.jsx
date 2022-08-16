@@ -34,6 +34,37 @@ const Wrapper = styled.div`
       border: none;
     }
   }
+
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+
+    .jump-page {
+      display: flex;
+
+      select {
+        margin: 0 0.2em;
+      }
+    }
+
+    button {
+      font-weight: 500;
+      padding: 0.4em 0.3em;
+      font-size: var(--font-small);
+      text-transform: uppercase;
+      border: 0;
+      background-color: transparent;
+    }
+
+    button:hover {
+      cursor: pointer;
+      color: white;
+      border-radius: 4px;
+      border-bottom: 1px solid black;
+      background-color: #373737;
+    }
+  }
 `;
 
 export default Wrapper;
