@@ -4,6 +4,7 @@ import Wrapper from "../assets/wrappers/Products";
 import { BsFillGridFill, BsList } from "react-icons/bs";
 import { useState } from "react";
 import { handleFilters } from "../features/product/productSlice";
+import Loading from "./Loading";
 
 const Products = () => {
   const { isLoading, products } = useSelector((store) => store.product);
@@ -48,7 +49,7 @@ const Products = () => {
         </div>
       </div>
       {isLoading ? (
-        <p>Loading...</p>
+        <Loading />
       ) : (
         <div className="products-showcase">
           {products.map((data) => {

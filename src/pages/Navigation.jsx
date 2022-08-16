@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Outlet, Link } from "react-router-dom";
 import { logoutUser } from "../features/user/userSlice";
 
-import { BiUser, BiSearch, BiHeart, BiCart } from "react-icons/bi";
+import { BiUser, BiHeart, BiCart } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 import { FiLogOut } from "react-icons/fi";
