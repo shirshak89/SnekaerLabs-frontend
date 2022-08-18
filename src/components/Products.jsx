@@ -77,6 +77,7 @@ const Products = () => {
             return (
               <Product
                 key={data._id}
+                id={data._id}
                 image={data.image}
                 name={data.name}
                 company={data.company}
@@ -110,7 +111,6 @@ const Products = () => {
             <option value="name">2</option>
             <option value="-name">3</option>
             <option value="-price">4</option>
-            <option value="price">4</option>
           </select>
           <p>/{totalPages}</p>
         </div>

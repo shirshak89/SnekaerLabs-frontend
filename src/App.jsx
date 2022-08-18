@@ -11,6 +11,7 @@ import Navigation from "./pages/Navigation";
 import MainPage from "./pages/MainPage";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
+import SingleProduct from "./pages/SingleProduct";
 
 function App() {
   return (
@@ -18,7 +19,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<MainPage />} />
-          <Route path="shop" element={<Shop />} />
+          <Route path="shop">
+            <Route index element={<Shop />} />
+            <Route path=":id" element={<SingleProduct />} />
+          </Route>
           <Route path="contact" element={<Contact />} />
         </Route>
         <Route path="login" element={<Login />} />

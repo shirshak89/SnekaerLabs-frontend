@@ -59,6 +59,7 @@ const MainPage = () => {
                 return (
                   <Product
                     key={data._id}
+                    id={data._id}
                     image={data.image}
                     name={data.name}
                     company={data.company}

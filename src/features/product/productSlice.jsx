@@ -13,6 +13,7 @@ const initialFilterState = {
 const initialState = {
   isLoading: false,
   products: [],
+  singleProduct: [],
   totalPages: 1,
   ...initialFilterState,
 };
@@ -38,6 +39,18 @@ export const getAllProducts = createAsyncThunk(
       const resp = await customFetch.get(
         `/api/v1/products?name=${search}&company=${company}&category=${category}&sort=${sort}&page=${page}`
       );
+      return resp.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.msg);
+    }
+  }
+);
+
+export const getSingleProduct = createAsyncThunk(
+  "product/getSingleProduct",
+  async (id, thunkAPI) => {
+    try {
+      const resp = await customFetch.get(`/api/v1/products/${id}`);
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.msg);
@@ -80,6 +93,18 @@ const productSlice = createSlice({
       state.isLoading = false;
     },
     [getAllProducts.rejected]: (state, { payload }) => {
+      state.isLoading = false;
+      toast.error(payload);
+    },
+    [getSingleProduct.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getSingleProduct.fulfilled]: (state, { payload }) => {
+      const { product } = payload;
+      state.singleProduct = product;
+      state.isLoading = false;
+    },
+    [getSingleProduct.rejected]: (state, { payload }) => {
       state.isLoading = false;
       toast.error(payload);
     },

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   .bounce {
-    height: 500px;
+    height: 550px;
     width: 100%;
     display: flex;
     gap: 0.2em;

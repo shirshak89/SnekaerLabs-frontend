@@ -2,10 +2,13 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-rows: 2.5fr 1fr;
   width: 280px;
   border-radius: 8px;
   margin-top: 1em;
+
+  a {
+    margin: 0;
+  }
 
   .product-image {
     border-top-right-radius: 8px;
@@ -60,11 +63,14 @@ const Wrapper = styled.div`
 
     .product-name-row {
       svg {
+        font-size: 22px;
         color: var(--primary-color);
+        transition: transform 250ms ease-out;
       }
 
       svg:hover {
         cursor: pointer;
+        transform: scale(1.3);
       }
     }
 

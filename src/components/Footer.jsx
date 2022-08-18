@@ -1,7 +1,8 @@
-import React from "react";
+import Wrapper from "../assets/wrappers/Footer";
 
 const Footer = () => {
-  return <div>Footer</div>;
+  const today = new Date().getFullYear();
+  return <Wrapper>© {today} SneakerLabs. All rights reserved</Wrapper>;
 };
 
 export default Footer;
