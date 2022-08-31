@@ -38,17 +38,17 @@ const SingleProduct = () => {
               Rs <span>{singleProduct[0]?.price}</span>
             </p>
             <p className="product-description">
-              {singleProduct[0].description}
+              {singleProduct[0]?.description}
             </p>
             <div className="other-details">
               <p className="info">
-                <span>In Stock :</span> {singleProduct[0].inventory}
+                <span>In Stock :</span> {singleProduct[0]?.inventory}
               </p>
               <p className="info">
-                <span>Company :</span> {singleProduct[0].company}
+                <span>Company :</span> {singleProduct[0]?.company}
               </p>
               <p className="info">
-                <span>Category :</span> {singleProduct[0].category}
+                <span>Category :</span> {singleProduct[0]?.category}
               </p>
             </div>
             <button className="btn cart-btn">Add To Cart</button>
